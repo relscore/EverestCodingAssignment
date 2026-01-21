@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/sudhirkumar/Work/EverestCodingAssignment/EverestCodingAssignment.csproj": {}
+    "/Users/sudhirkumar/Work/EverestCodingAssignment/EverestCodingAssignment/EverestCodingAssignment.csproj": {}
   },
   "projects": {
-    "/Users/sudhirkumar/Work/EverestCodingAssignment/EverestCodingAssignment.csproj": {
+    "/Users/sudhirkumar/Work/EverestCodingAssignment/EverestCodingAssignment/EverestCodingAssignment.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/sudhirkumar/Work/EverestCodingAssignment/EverestCodingAssignment.csproj",
+        "projectUniqueName": "/Users/sudhirkumar/Work/EverestCodingAssignment/EverestCodingAssignment/EverestCodingAssignment.csproj",
         "projectName": "EverestCodingAssignment",
-        "projectPath": "/Users/sudhirkumar/Work/EverestCodingAssignment/EverestCodingAssignment.csproj",
+        "projectPath": "/Users/sudhirkumar/Work/EverestCodingAssignment/EverestCodingAssignment/EverestCodingAssignment.csproj",
         "packagesPath": "/Users/sudhirkumar/.nuget/packages/",
-        "outputPath": "/Users/sudhirkumar/Work/EverestCodingAssignment/obj/",
+        "outputPath": "/Users/sudhirkumar/Work/EverestCodingAssignment/EverestCodingAssignment/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/sudhirkumar/.nuget/NuGet/NuGet.Config"
@@ -43,6 +43,12 @@
       "frameworks": {
         "net10.0": {
           "targetAlias": "net10.0",
+          "dependencies": {
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[10.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
