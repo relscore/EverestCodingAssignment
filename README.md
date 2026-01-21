@@ -24,34 +24,46 @@ Example: `100 5 PKG1 50 30 OFR001 PKG2 75 125 OFFR08 PKG3 175 100 OFR003 2 70 20
 
 ## Project Structure
 
+# Everest Coding Assignment – Courier Service
+
+## 📌 Overview
+This project implements a courier service cost and delivery time calculation system using Clean Architecture principles. It follows Modular approach to devide fetures into 
+different serves and implements interfaces for better extesibilty in future.
+
+---
+
+## 🏗 Project Structure
+
+```text
 CourierService/
-├── Core/                         # Domain Layer – Business Logic
-│   ├── Models/                   # Domain Entities
-│   │   ├── Package.cs             # Package with weight, distance, offer code
-│   │   ├── DeliveryResult.cs      # Cost, discount, and delivery time
-│   │   ├── Offer.cs               # Offer criteria and discount rules
-│   │   └── Vehicle.cs             # Vehicle availability tracking
+├── Core/
+│   ├── Models/
+│   │   ├── Package.cs
+│   │   ├── DeliveryResult.cs
+│   │   ├── Offer.cs
+│   │   └── Vehicle.cs
 │   │
-│   └── Services/                  # Core Business Services
-│       ├── Delivery/              # Delivery-related services
+│   └── Services/
+│       ├── Delivery/
 │       │   ├── IDeliveryCostCalculator.cs
-│       │   ├── DeliveryCostCalculator.cs   # Base cost + discount
+│       │   ├── DeliveryCostCalculator.cs
 │       │   ├── IDeliveryTimeCalculator.cs
-│       │   └── DeliveryTimeCalculator.cs   # Shipment scheduling
+│       │   └── DeliveryTimeCalculator.cs
 │       │
-│       ├── IOfferService.cs        # Offer validation interface
-│       ├── IPackageProcessor.cs    # Main orchestration interface
-│       └── PackageProcessor.cs     # Coordinates cost & time calculations
+│       ├── IOfferService.cs
+│       ├── IPackageProcessor.cs
+│       └── PackageProcessor.cs
 │
-├── Infrastructure/                # Infrastructure Layer – Implementations
+├── Infrastructure/
 │   ├── Offers/
-│   │   └── OfferService.cs         # Offer validation & discount calculation
+│   │   └── OfferService.cs
 │   │
 │   └── Parsers/
-│       └── InputParser.cs          # Console input → domain models
+│       └── InputParser.cs
 │
-├── ConsoleApp/                     # Presentation Layer
-│   └── Program.cs                 # Console UI & DI configuration
+├── ConsoleApp/
+│   └── Program.cs
 │
 └── EverestCodingAssignment.csproj
+
 
