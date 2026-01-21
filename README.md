@@ -24,13 +24,13 @@ Example: `100 5 PKG1 50 30 OFR001 PKG2 75 125 OFFR08 PKG3 175 100 OFR003 2 70 20
 
 # Everest Coding Assignment – Courier Service
 
-## 📌 Overview
+## Overview
 This project implements a courier service cost and delivery time calculation system using Clean Architecture principles. It follows Modular approach to devide fetures into 
 different serves and implements interfaces for better extensibilty in future. For example OfferService handles any changes to offer code either it is new code or require update on old offer code.
 
 ---
 
-## 🏗 Project Structure
+## Project Structure
 
 ```text
 CourierService/
