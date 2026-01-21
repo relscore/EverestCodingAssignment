@@ -22,11 +22,36 @@ Input format: `base_delivery_cost no_of_packages pkg_id1 pkg_weight1_in_kg dista
 
 Example: `100 5 PKG1 50 30 OFR001 PKG2 75 125 OFFR08 PKG3 175 100 OFR003 2 70 200`
 
+## Project Structure
 
 CourierService/
-├── Core/
-│ ├── Models/ # Domain models
-│ └── Services/ # Core business logic
-├── Infrastructure/ # Infrastructure services
-├── Program.cs # Main application
-└── CourierService.ConsoleApp.csproj
+├── Core/                         # Domain Layer – Business Logic
+│   ├── Models/                   # Domain Entities
+│   │   ├── Package.cs             # Package with weight, distance, offer code
+│   │   ├── DeliveryResult.cs      # Cost, discount, and delivery time
+│   │   ├── Offer.cs               # Offer criteria and discount rules
+│   │   └── Vehicle.cs             # Vehicle availability tracking
+│   │
+│   └── Services/                  # Core Business Services
+│       ├── Delivery/              # Delivery-related services
+│       │   ├── IDeliveryCostCalculator.cs
+│       │   ├── DeliveryCostCalculator.cs   # Base cost + discount
+│       │   ├── IDeliveryTimeCalculator.cs
+│       │   └── DeliveryTimeCalculator.cs   # Shipment scheduling
+│       │
+│       ├── IOfferService.cs        # Offer validation interface
+│       ├── IPackageProcessor.cs    # Main orchestration interface
+│       └── PackageProcessor.cs     # Coordinates cost & time calculations
+│
+├── Infrastructure/                # Infrastructure Layer – Implementations
+│   ├── Offers/
+│   │   └── OfferService.cs         # Offer validation & discount calculation
+│   │
+│   └── Parsers/
+│       └── InputParser.cs          # Console input → domain models
+│
+├── ConsoleApp/                     # Presentation Layer
+│   └── Program.cs                 # Console UI & DI configuration
+│
+└── EverestCodingAssignment.csproj
+
