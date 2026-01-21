@@ -80,4 +80,5 @@ BundleArtifacts/
 # Temporary files
 *.tmp
 *.temp
+
 obj/project.nuget.cache
