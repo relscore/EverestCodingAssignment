@@ -23,8 +23,9 @@ Input format: `base_delivery_cost no_of_packages pkg_id1 pkg_weight1_in_kg dista
 Example: `100 5 PKG1 50 30 OFR001 PKG2 75 125 OFFR08 PKG3 175 100 OFR003 2 70 200`
 
 ## Overview
-This project implements a courier service cost and delivery time calculation system using Clean Architecture principles. It follows Modular approach to devide fetures into 
-different serves and implements interfaces for better extensibilty in future. For example OfferService handles any changes to offer code either it is new code or require update on old offer code. I have modeled Offer with ranges to avoid repititative works. Cost calculations are straight forward with simple calculations but delivery time calculations required selections of best combinations of packages and selecting optimal deliver vehicle available. everywhere comments are added for better understanding. Find the high level project structure below for understaing the application. 
+This project implements a courier service cost and delivery time calculation system using Clean Architecture principles. It follows Modular approach to devide features into different services and implements interfaces for better extensibilty in future. For example OfferService handles any changes to offer code either it is new code or require update on old offer code. I have modeled Offer with ranges to avoid repititative works. Cost calculations are straight forward with simple calculations but delivery time calculations required selections of best combinations of packages and selecting optimal deliver vehicle available. everywhere comments are added for better understanding. Find the high level project structure below for understaing the application. 
+
+Added Unit Tests for different validations.
 
 Note: There are irregularties in offer codes mentioned in the PDF shared for this assigment. I have assumed those were typing mistakes. E.g. OFR002 and OFFR002 were used for same discount. So I have added this for discount application. Other offer codes will follow exact characters but case insensitive.
 
@@ -59,9 +60,16 @@ CourierService/
 │   └── Parsers/
 │       └── InputParser.cs
 │
-├── ConsoleApp/
-│   └── Program.cs
+│── Tests/
+│   ├── Core/
+│   ├── Infrastructure/
+│   │── Integration/
+│   │
+│   └── CourierService.Tests.csproj
+│       
 │
-└── EverestCodingAssignment.csproj
+├── Program.cs
+│
+└── CodingAssignment.csproj
 
 
