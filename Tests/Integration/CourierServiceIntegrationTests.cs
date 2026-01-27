@@ -17,6 +17,7 @@ namespace CourierService.Tests.Integration
             _serviceProvider = new ServiceCollection()
                 .AddSingleton<IOfferService, OfferService>()
                 .AddSingleton<IDeliveryCostCalculator, DeliveryCostCalculator>()
+                .AddSingleton<IDeliveryTimeCalculator, DeliveryTimeCalculator>()
                 .AddSingleton<IInputParser, InputParser>()
                 .AddSingleton<IPackageProcessor, PackageProcessor>()
                 .BuildServiceProvider();

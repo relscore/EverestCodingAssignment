@@ -107,9 +107,21 @@ namespace CourierService.Tests.Core.Services
             var results = _processor.ProcessPackagesWithDeliveryTime(emptyList, 2, 70, 200);
 
             // Assert
+            Assert.NotNull(results);
             Assert.Empty(results);
-            _mockTimeCalculator.Verify(x => x.CalculateDeliveryTimes(
-                emptyList, It.IsAny<int>(), It.IsAny<decimal>(), It.IsAny<decimal>()), Times.Once);
+
+            // Bug Fix: When list is empty, CalculateDeliveryTimes should not be called
+            _mockTimeCalculator.Verify(
+                x => x.CalculateDeliveryTimes(
+                    It.IsAny<List<Package>>(), 
+                    It.IsAny<int>(), 
+                    It.IsAny<decimal>(), 
+                    It.IsAny<decimal>()),
+                Times.Never()); // Changed from Times.Once() to Times.Never()
+            
+            _mockCostCalculator.Verify(
+                x => x.CalculateDeliveryCost(It.IsAny<Package>()),
+                Times.Never()); // Also shouldn't calculate costs for empty list
         }
     }
 }

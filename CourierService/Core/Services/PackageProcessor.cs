@@ -21,6 +21,11 @@ namespace CourierService.Core.Services
 
         public List<DeliveryResult> ProcessPackagesWithDeliveryTime(List<Package> packages, int vehicles, decimal maxSpeed, decimal maxCarriableWeight)
         {
+            if (packages == null || !packages.Any())
+            {
+                return new List<DeliveryResult>();
+            }
+
             return _timeCalculator.CalculateDeliveryTimes(packages, vehicles, maxSpeed, maxCarriableWeight);
         }
     }
