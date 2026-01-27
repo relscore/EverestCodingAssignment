@@ -14,6 +14,12 @@ namespace CourierService.Core.Services.Delivery
 
         public DeliveryResult CalculateDeliveryCost(Package package)
         {
+            if (package == null)
+                throw new ArgumentNullException(nameof(package));
+            
+            if (package.Weight <= 0)
+                throw new ArgumentException("Weight must be positive", nameof(package.Weight));
+    
             // Calculate delivery cost: Base Cost + (Weight * 10) + (Distance * 5)
             var deliveryCost = package.BaseDeliveryCost + 
                               (package.Weight * 10) + 
